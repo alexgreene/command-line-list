@@ -13,18 +13,17 @@ int main(int argc, char* argv[]){
 
     int i, num_places, ret;
 
-    /* list takes a command parameter */
-	if ( argc <= 1  ) {
+    /* list takes a command line parameter */
+    if ( argc <= 1  ) {
         printf("enter 'list help' for correct usage instructions\n");
         return 0;       
 	}
 
-	getenv("HOME");
-
-	char* home = getenv("HOME");
-	char list_save_path[ PATH_MAX ];
-	strcpy( list_save_path, home );
-	strcat( list_save_path, "/Documents/projects/list/list_save" );
+    getenv("HOME");
+    char* home = getenv("HOME");
+    char list_save_path[ PATH_MAX ];
+    strcpy( list_save_path, home );
+    strcat( list_save_path, "/Documents/projects/list/list_save" );
 
     /* open save file for reading and writing (bytes) */
     FILE* store = fopen(list_save_path, "ab+");
@@ -38,7 +37,6 @@ int main(int argc, char* argv[]){
     /* printf("%d\n", num_places); */
     rewind( store );
 
-    
     if ( strncmp(argv[1], "help", strlen(argv[1])) == 0 ){
 
         printf("USAGE:\n");
